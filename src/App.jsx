@@ -15,6 +15,7 @@ function App() {
     unix_P1: "",
     unix_TP: "",
     ti_P1: "",
+    ti_Evc: "", // Ajout de ti_Evc dans l'état initial
     anglais_P1: "",
     tec_P1: "",
   });
@@ -23,14 +24,14 @@ function App() {
   const [finalAverage, setFinalAverage] = useState(null);
 
   const coefficients = {
-    math: 5,
+    math: 4,
     tns: 5,
-    java: 4,
+    java: 5,
     reseaux: 4,
     unix: 3,
-    ti: 3,
-    anglais: 2,
-    tec: 2,
+    ti: 5,
+    anglais: 1,
+    tec: 1,
   };
 
   const handleInputChange = (e) => {
@@ -58,6 +59,7 @@ function App() {
       unix_P1,
       unix_TP,
       ti_P1,
+      ti_Evc,
       anglais_P1,
       tec_P1,
     } = notes;
@@ -68,8 +70,8 @@ function App() {
     ).toFixed(2);
 
     const tnsAverage = (
-      (2 * Number(tns_P1) + 3 * Number(tns_P2) + Number(tns_TP)) /
-      6
+      (Number(tns_P1) + 2 * Number(tns_P2) + Number(tns_TP)) /
+      4
     ).toFixed(2);
 
     const javaAverage = (
@@ -84,7 +86,11 @@ function App() {
       3
     ).toFixed(2);
 
-    const tiAverage = Number(ti_P1).toFixed(2);
+    const tiAverage = (
+      (2 * Number(ti_P1) + Number(ti_Evc)) /
+      3
+    ).toFixed(2);
+
     const anglaisAverage = Number(anglais_P1).toFixed(2);
     const tecAverage = Number(tec_P1).toFixed(2);
 
@@ -251,6 +257,15 @@ function App() {
               type="number"
               name="ti_P1"
               value={notes.ti_P1}
+              onChange={handleInputChange}
+            />
+          </div>
+          <div className="input-group">
+            <label>EVC</label>
+            <input
+              type="number"
+              name="ti_Evc"
+              value={notes.ti_Evc}
               onChange={handleInputChange}
             />
           </div>
