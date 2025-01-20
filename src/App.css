@@ -48,7 +48,8 @@ p {
   background: #ffffff;
   border-radius: 12px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  margin: auto;
+  padding: 0px 10px;
   width: 320px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -78,7 +79,7 @@ label {
 
 input {
   width: 100%;
-  padding: 10px 12px;
+  padding: 10px 0px;
   font-size: 1rem;
   color: #2c3e50;
   border: 1px solid #ddd;
